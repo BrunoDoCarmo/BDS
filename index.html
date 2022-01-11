@@ -113,7 +113,9 @@
           <img src="img/about.jpg" alt="">
         </div>
         <div class="content">
-          <h1 class="heading">Sobre nós</h1>
+          <div class="heading">
+            <span>Sobre nós</span>
+          </div>
           <h3>BDS - Informática</h3>
           <h2>Softwares, sistemas e sites para uma melhor gestão do seu negócio. </h2>
           <p>A familia BDS tem como objetivo, buscar o melhor para sua empresa em gerenciamento com software de qualidade além de facilitar o dia a dia de funcionarios com o objetiivo de proprcionar um bom rendimento no serviço. </p>
@@ -268,6 +270,19 @@
                 </div>
               </div>
             </div> -->
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="layer"></div>
+                <div class="content">
+                  <div class="imgBx">
+                    <img src="img/technology/12.png" />
+                  </div>
+                  <div class="details">
+                    <h2>Github</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -281,34 +296,35 @@
               <i class="fas fa-phone"></i>
               <div class="info">
                 <h3>Telefone :</h3>
-                <a href="tel:0443232-6083"><p>(44) 3232-6083</p></a>
-                <a href="tel:0443015-2439"><p>(44) 3015-2439</p></a>
-                <a href="tel:04499961-5259"><p>(44) 99961-5259</p></a>
-                <a href="tel:04499961-5260"><p>(44) 99961-5260</p></a>
+                <a href="tel:0443232-6083" target="_blank"><p>(44) 3232-6083</p></a>
+                <a href="tel:0443015-2439" target="_blank"><p>(44) 3015-2439</p></a>
+                <a href="tel:04499961-5259" target="_blank"><p>(44) 99961-5259</p></a>
+                <a href="tel:04499961-5260" target="_blank"><p>(44) 99961-5260</p></a>
               </div>
             </div>
             <div class="box">
               <i class="fas fa-envelope"></i>
               <div class="info">
                 <h3>e-mail :</h3>
-                <a href="mailto:sac@infobds.com.br"><p>SAC@INFOBDS.COM.BR</p></a>
-                <a href="mailto:suporte@infobds.com.br"><p>SUPORTE@INFOBDS.COM.BR</p></a>
+                <a href="mailto:sac@infobds.com.br" target="_blank"><p>SAC@INFOBDS.COM.BR</p></a>
+                <a href="mailto:suporte@infobds.com.br" target="_blank"><p>SUPORTE@INFOBDS.COM.BR</p></a>
               </div>
             </div>
             <div class="box">
               <i class="fas fa-map"></i>
               <div class="info">
                 <h3>Endereço :</h3>
-                <a href="https://goo.gl/maps/Z57eT3rSpF5Me6ef9">
+                <a href="https://goo.gl/maps/Z57eT3rSpF5Me6ef9" target="_blank">
                   R. WASHINGTON LUIZ, 1129 - 101 CENTRO, <br/>MARIALVA - PR, 86990-000
                 </a>
               </div>
             </div>
             <div class="share">
-              <a href="#" class="fab fa-facebook-f"></a>
-              <a href="#" class="fab fa-twitter"></a>
-              <a href="#" class="fab fa-instagram"></a>
-              <a href="#" class="fab fa-linkedin"></a>
+              <a href="https://api.whatsapp.com/send?phone=5544999615259&amp;text=Olá, vim através do site..." class="fab fa-whatsapp" target="_blank"></a>
+              <a href="https://www.facebook.com/bdsSistema" class="fab fa-facebook-f" target="_blank"></a>
+              <a href="#" class="fab fa-instagram" target="_blank"></a>
+              <a href="#" class="fab fa-linkedin" target="_blank"></a>
+              <a href="#" class="fab fa-telegram-plane" target="_blank"></a>
             </div>
           </div>
           <form action="" class="form">
@@ -334,7 +350,7 @@
 
             </div>
             <div class="inputBox">
-              <input type="number" placeholder="Telefone" name="telefone" id="telefone">
+              <input type="text" placeholder="Telefone" name="telefone" id="telefone">
               <input type="text" placeholder="Assunto" name="assunto" id="assunto">
             </div>
             <textarea name="" placeholder="Messagem" id="messagem" cols="30" rows="10"></textarea>
@@ -457,6 +473,9 @@
           </div>
         </div>
       </section>
+      <a id="float-whats" href="https://api.whatsapp.com/send?phone=5544999615259&amp;text=Olá, vim através do site..." target="_blank">
+        <img src="img/whatsapp-brands.svg" id="float-whats-icon">
+      </a> 
     </main>
     <footer class="footer">
       <div class="box-container">
@@ -469,44 +488,20 @@
         </div>
         <div class="box">
           <h3>Contato</h3>
-          <a href="tel:+554499972-8673"
-            ><i class="fas fa-phone"></i>+55 (44) 99972-8673</a
-          >
-          <a href="tel:+554499961-5259"
-            ><i class="fas fa-phone"></i>+55 (44) 99961-5259</a
-          >
-          <a href="tel:+55443232-6083"
-            ><i class="fas fa-phone"></i>+55 (44) 3232-6083</a
-          >
-          <a href="tel:+55443015-2439"
-            ><i class="fas fa-phone"></i>+55 (44) 3015-2439</a
-          >
-          <a href="mailto:sac@infobds.com.br"
-            ><i class="fas fa-envelope"></i>sac@infobds.com.br</a
-          >
-          <a href="mailto:suporte@infobds.com.br"
-            ><i class="fas fa-envelope"></i>suporte@infobds.com.br</a
-          >
+          <a href="tel:+554499972-8673"><i class="fas fa-phone" target="_blank"></i>+55 (44) 99972-8673</a>
+          <a href="tel:+554499961-5259"><i class="fas fa-phone" target="_blank"></i>+55 (44) 99961-5259</a>
+          <a href="tel:+55443232-6083"><i class="fas fa-phone" target="_blank"></i>+55 (44) 3232-6083</a>
+          <a href="tel:+55443015-2439"><i class="fas fa-phone" target="_blank"></i>+55 (44) 3015-2439</a>
+          <a href="mailto:sac@infobds.com.br"><i class="fas fa-envelope" target="_blank"></i>sac@infobds.com.br</a>
+          <a href="mailto:suporte@infobds.com.br"><i class="fas fa-envelope" target="_blank"></i>suporte@infobds.com.br</a>
         </div>
         <div class="box">
           <h3>Siga-nos</h3>
-          <a
-            href="https://api.whatsapp.com/send?phone=5544991567410&amp;text=Olá, vim através do site..."
-            target="_blank"
-            ><i class="fab fa-whatsapp"></i>WhatsApp</a
-          >
-          <a href="https://www.facebook.com/bdsSistema" target="_blank"
-            ><i class="fab fa-facebook-f"></i>Facebook</a
-          >
-          <a href="#" target="_blank"
-            ><i class="fab fa-instagram"></i>Instagram</a
-          >
-          <a href="#" target="_blank"
-            ><i class="fab fa-linkedin"></i>Linkedin</a
-          >
-          <a href="#" target="_blank"
-            ><i class="fab fa-telegram-plane"></i>Telegram</a
-          >
+          <a href="https://api.whatsapp.com/send?phone=5544999615259&amp;text=Olá, vim através do site..." target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+          <a href="https://www.facebook.com/bdsSistema" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
+          <a href="#" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+          <a href="#" target="_blank"><i class="fab fa-linkedin"></i>Linkedin</a>
+          <a href="#" target="_blank"><i class="fab fa-telegram-plane"></i>Telegram</a>
         </div>
       </div>
       <div class="credit">
