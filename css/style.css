@@ -470,10 +470,12 @@ footer {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-.contact .row form .inputBox input {
+.contact .row form .inputBox input,
+.contact .row form .inputBox select {
   width: 49%;
 }
 .contact .row form .inputBox input,
+.contact .row form .inputBox select,
 .contact .row form textarea {
   padding: 1.4rem;
   border-radius: 1rem;
@@ -766,10 +768,12 @@ iframe {
     line-height: 7rem;
     font-size: 4rem;
   }
-  .contact .row form .inputBox input {
+  .contact .row form .inputBox input,
+  .contact .row form .inputBox select {
     width: 100%;
   }
   .contact .row form .inputBox input,
+  .contact .row form .inputBox select,
   .contact .row form textarea {
     font-size: 2rem;
   }
