@@ -58,7 +58,19 @@ var swiper = new Swiper('.swiper-container', {
   loop: true
 })
 let selectContact = document.querySelector('#selectContact')
-selectContact.addEventListener("click", function () {
-	let contact = document.querySelector('.contact .form .work')
-	contact.classList.toggle('active')
+selectContact.addEventListener('click', function () {
+  let contact = document.querySelector('.contact .form .work')
+  contact.classList.toggle('active')[2]
 })
+function fileSelected(event) {
+  console.log(event.target.files)
+  let fileName = event.target.files[0]?.le
+  fileName = fileName + ""
+  //Verificar se existe comprimento no vetor files -> event.target.files
+  //Percorrer o vetor e capturar o nome e concatenar em uma string
+  if(fileName > 1){
+    document.querySelector('label[for="fileUpload"').innerText = fileName
+  }
+  document.querySelector('label[for="fileUpload"').innerText = fileName
+}
+document.getElementById('fileUpload').addEventListener('change', fileSelected)
