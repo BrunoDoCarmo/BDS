@@ -372,6 +372,11 @@
               <input type="text" placeholder="Nome" name="name" id="name">
               <input type="email" placeholder="E-mail" name="email" id="email">
             </div>
+            <div class="inputBox">
+              <input type="text" placeholder="Telefone" name="telefone" id="telefone">
+              <input type="text" placeholder="Assunto" name="assunto" id="assunto">
+            </div>
+            <textarea name="" placeholder="Messagem" id="messagem" cols="30" rows="10"></textarea>
             <div class="work">
               <div class="inputBox">
                 <select name="funcao" id="funcao">
@@ -390,13 +395,6 @@
                   <option value="10 ou +">10 ou +</option>
                 </select>
               </div>
-            </div>
-            <div class="inputBox">
-              <input type="text" placeholder="Telefone" name="telefone" id="telefone">
-              <input type="text" placeholder="Assunto" name="assunto" id="assunto">
-            </div>
-            <textarea name="" placeholder="Messagem" id="messagem" cols="30" rows="10"></textarea>
-            <div class="work">
               <div class="inputBox">
                 <label for="fileUpload">Escolher arquivo</label>
                 <input type="file" id="fileUpload" style="display: none;" multiple="multiple">
@@ -404,26 +402,6 @@
             </div>
             <input type="submit" value="Enviar e-mail" class="btn">
           </form>
-          <style>
-            #warning {
-              text-align: center;
-              transition: 1s all;
-            }
-
-            #warning.warn {
-              color: red;
-              transform: scale(1.5);
-            }
-          </style>
-          <section id="shortcode-5" class="shortcode-5 pb-50">
-            <p id="warning">Please do not upload more than 10 images at once.</p>
-            <form class="imagePoster" enctype="multipart/form-data" action="/gallery/imagePoster" method="post">
-                <div class="input-group">
-            <input id="filePoster" type="file" class="form-control" name="photo" required="required" multiple="multiple" />
-                <button id="submitFiles" class="btn btn-primary" type="submit" name="button">Submit</button>
-                </div>
-            </form>
-        </section>
         </div>
       </section>
       <section class="maps">
