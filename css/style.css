@@ -515,6 +515,14 @@ footer {
 .contact .row .form .inputBox select {
   width: 49%;
 }
+.contact .row .form .inputBox:nth-child(3) input:nth-child(1),
+.contact .row .form .inputBox:nth-child(5) input:nth-child(2) {
+  text-transform: uppercase;
+}
+.contact .row .form .inputBox input[type=number]::-webkit-inner-spin-button, 
+.contact .row .form .inputBox input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+}
 .contact .row .form .inputBox input,
 .contact .row .form .inputBox select,
 .contact .row .form textarea {
@@ -524,20 +532,7 @@ footer {
   text-transform: none;
   color: var(--black1);
   margin: 0.7rem 0;
-  font-size: 2rem;
   border: 0.1rem solid var(--black1);
-}
-.contact .row .form .inputBox label[for='fileUpload'] {
-  padding: 1.4rem;
-  border-radius: 1rem;
-  background: var(--black3);
-  text-transform: none;
-  color: var(--black1);
-  margin: 0.7rem 0;
-  font-size: 2rem;
-  border: 0.1rem solid var(--black1);
-  width: 100%;
-  cursor: pointer;
 }
 .contact .row .form textarea {
   width: 100%;
