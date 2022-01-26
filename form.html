@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://localhost:300" method="post" class="form" id="email-form" enctype="multipart/form-data">
+        <div class="select">
+          <p>Contato</p>
+          <div class="checkbox">
+            <div class="inner">
+              <div id="selectContact" class="toggle"></div>
+            </div>
+          </div>
+          <p>Trabalhe conosco</p>
+        </div>
+        <div class="inputBox">
+          <input type="text" placeholder="Nome" name="name" id="name" value="Pablo teste">
+          <input type="email" placeholder="E-mail" name="email" id="email" value="testando@test.com">
+        </div>
+        <div class="inputBox">
+          <input type="text" placeholder="Telefone" name="phoneNumber" id="telefone" value="446556565">
+          <input type="text" placeholder="Assunto" name="subject" id="assunto" value="Teste assunto">
+        </div>
+        <textarea name="message" placeholder="Messagem" id="messagem" cols="30" rows="10">Teste texto mensagem livre</textarea>
+        <div class="work">
+          <div class="inputBox">
+            <select name="expertise" id="funcao">
+              <option value="">Cargo desejado</option>
+              <option value="Suporte">Suporte</option>
+              <option value="Programador(a)">Programador(a)</option>
+              <option value="Secretário(a)">Secretário(a)</option>
+              <option value="Financeiro">Financeiro</option>
+            </select>
+            <select name="workExperience" id="experiencia">
+              <option value="">Nivel de experiência?</option>
+              <option value="0 - 1 ano">0 - 1 ano</option>
+              <option value="1 - 3 anos">1 - 3 anos</option>
+              <option value="3 - 5 anos">3 - 5 anos</option>
+              <option value="5 - 10 anos">5 - 10 anos</option>
+              <option value="10 ou +">10 ou +</option>
+            </select>
+          </div>
+          <div class="inputBox">
+            <label for="fileUpload">Escolher arquivo</label>
+            <input type="file" id="fileUpload" name="files" style="display: none;" multiple="multiple">
+          </div>
+        </div>
+        <input type="submit" value="Enviar e-mail" class="btn">
+    </form>
+    
+    <script>
+        const env = {
+            BASE_URL: "http://localhost:300/v1",
+            AUTH_USER: "infobds",
+            AUTH_PASS: "infobds",
+            STANDARD_RECEIVER: "desenvolvimento@infobds.com.br",
+            SITE_URL: "infobds.com.br"
+        }
+        function renderHtml(name, message, phoneNumber, email, expertise, workExperience, renderWork) {
+            return `
+                <p>
+                    Olá, ${name} lhe enviou uma mensagem:
+                    <br>
+                    ${message}.
+                    <br>
+                    <br>
+                    Formas de contato:
+                    <br>
+                    Fone: <a href="tel:${phoneNumber}" target="_blank" class="email-link">${phoneNumber}.</a>
+                    <br>
+                    WhatsApp: <a href="https://api.whatsapp.com/send/?phone=${phoneNumber}" target="_blank" class="email-link">${phoneNumber}.</a>
+                    <br>
+                    E-mail: <a href="mailto:${email}" target="_blank" class="email-link">${email}.</a>
+                    <span style="display: ${renderWork ? "flex" : "none"}">
+                        <br>
+                        Solicitação de trabalho:
+                        <br>
+                        Cargo desejado: ${expertise}.
+                        <br>
+                        Tempo de experiência: ${workExperience}.
+                        <br>
+                        Verificar anexos!
+                    </span>
+                    <br>
+                    <br>
+                    <!-- <a href="https://www.infobds.com.br" target="_blank" class="email-link">
+                        <div id="logo-bds"></div>
+                    </a> -->
+                    Atenciosamente, BDS Informática LTDA.
+                    <br>
+                    Soluções em desenvolvimento de sistemas.
+                    <br>
+                    Fone: <a href="tel:+55443232-6083" target="_blank" class="email-link">(44) 3232-6083.</a>
+                    <br>
+                    WhatsApp: <a href="https://api.whatsapp.com/send/?phone=5544999728673" target="_blank" class="email-link">(44) 99972-8673.</a>
+                    <br>
+                    E-mail: <a href="mailto:suporte@infobds.com.br" target="_blank" class="email-link">suporte@infobds.com.br.</a>
+                    <br>
+                    Website: <a href="https://www.infobds.com.br" target="_blank" class="email-link">www.infobds.com.br.</a>
+                    <br>
+                    Obrigado por utilizar nossos serviços.
+                    <br>
+                    Favor não responder este e-mail.
+                </p>
+            `;
+        }
+
+        class Email {
+            constructor(subject, name, message, phoneNumber, email, expertise, workExperience, files) {
+                try {
+                    if (!name) {
+                        throw new Error("Name not provided!");
+                    }
+                    if (!phoneNumber) {
+                        throw new Error("PhoneNumber not provided!");
+                    }
+                    if (!email) {
+                        throw new Error("Email not provided!");
+                    }
+                    this.to = env.STANDARD_RECEIVER;
+                    this.subject = `Entrada de formulário de ${env.SITE_URL}. ${subject}`
+                    this.cc = "";
+                    this.html = renderHtml(name, message, phoneNumber, email, expertise, workExperience, ((expertise || workExperience) ? true : false));
+                    this.files = files;
+                } catch (error) {
+                    console.log(error);
+                    alert(error.message);
+                }
+            }
+
+            generateFormData() {
+                const body = new FormData();
+                body.append("to", this.to);
+                body.append("subject", this.subject);
+                body.append("cc", this.cc);
+                body.append("html", this.html);
+                body.append("files", this.files);
+                return body;
+            }
+        }
+        async function authApp() {
+            try {
+                const requestParams = {
+                    url: `${env.BASE_URL}/auth`,
+                    method: "post",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        userName: env.AUTH_USER,
+                        password: env.AUTH_PASS
+                    })
+                };
+                const response = await fetch(requestParams.url, requestParams);
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                if (!data.token) {
+                    throw new Error("No token received!");
+                }
+                return {type: data.type, token: data.token};
+            } catch (error) {
+                console.log(error);
+                return {type: null, token: null};
+            }
+        }
+        async function sendEmail(email) {
+            try {
+                if (!email) {
+                    throw new Error("E-mail not provided!");
+                }
+                const {type, token} = await authApp();
+                if (!type || !token) {
+                    throw new Error("Não foi possível autenticar com o serviço de envio de e-mail, tente novamente mais tarde!");
+                }
+                const requestParams = {
+                    url: `${env.BASE_URL}/email/send`,
+                    method: "post",
+                    headers: {
+                        "Authorization": `${type} ${token}`
+                    },
+                    body: email.generateFormData()
+                }
+                const response = await fetch(requestParams.url, requestParams);
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                const p = document.createElement("p");
+                p.innerHTML = `
+                    Seu e-mail foi enviado com sucesso!
+                    <br>
+                    Por favor aguarde que entraremos em contato o mais breve possível!
+                `;
+                document.body.appendChild(p);
+            } catch (error) {
+                console.log(error);
+                alert(error.message);
+            }
+        }
+
+        function requestEmailSender(event) {
+            try {
+                event.preventDefault();
+
+                const form = document.getElementById("email-form");
+                if (!form.name.value) {
+                    throw new Error("Favor informar o seu nome!");
+                }
+                if (!form.subject.value) {
+                    throw new Error("Favor informar o assunto!");
+                }
+                if (!form.phoneNumber.value) {
+                    throw new Error("Favor informar o seu número de telefone!");
+                }
+                if (!form.email.value) {
+                    throw new Error("Favor informar o seu e-mail!");
+                }
+
+                const emailToSend = new Email(
+                    form.subject.value,
+                    form.name.value,
+                    form.message.value,
+                    form.phoneNumber.value,
+                    form.email.value,
+                    form.expertise.value,
+                    form.workExperience.value,
+                    form.files.files
+                );
+
+                return sendEmail(emailToSend);
+
+            } catch (error) {
+                console.log(error);
+                alert(error.message);
+            }
+        }
+        document.getElementById("email-form").addEventListener("submit", requestEmailSender);
+    </script>
+</body>
+</html>

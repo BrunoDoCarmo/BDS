@@ -401,29 +401,59 @@ footer {
 .contact .row .contact-info-container .share a:hover {
   background: var(--btn);
 }
+.contact .form.active {
+  display: none;
+}
+.contact .form {
+  display: block;
+}
+.contact .row .envio {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 42rem;
+  flex: 1 1 42rem;
+  display: none;
+}
+.contact .row .envio.active {  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact .row .envio.active p {
+  color: green;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+}
+.contact .row .envio.active span {
+  color: red;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+}
 .contact .row form {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 42rem;
   flex: 1 1 42rem;
+  /* display: none; */
 }
-.contact form .select {
+.contact .form .select {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 1rem;
 }
-.contact form .select p {
+.contact .form .select p {
   font-size: 1.5rem;
   margin: 0 1rem;
 }
-.contact form .select .checkbox {
+.contact .form .select .checkbox {
   transform: translate(0, 0);
   width: 60px;
   height: 30px;
   border-radius: 25px;
   background: linear-gradient(0deg, var(--black2), var(--black3));
 }
-.contact form .select .checkbox .inner {
+.contact .form .select .checkbox .inner {
   position: absolute;
   top: 5px;
   left: 5px;
@@ -433,7 +463,7 @@ footer {
   border-radius: 20px;
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
 }
-.contact form .select .checkbox .inner .toggle {
+.contact .form .select .checkbox .inner .toggle {
   position: absolute;
   top: -1px;
   left: -1px;
@@ -447,20 +477,31 @@ footer {
   border-bottom: 0.04em solid var(--black3);
   transition: 0.5s;
 }
-.contact form .select .checkbox .inner.active .toggle {
+.contact .form .select .checkbox .inner.active .toggle {
   left: 28.5px;
 }
-.contact form .select .checkbox .inner.active {
+.contact .form .select .checkbox .inner.active {
   background: var(--btn);
 }
-
 .contact .form .work {
   display: none;
 }
 .contact .form .work.active {
   display: block;
 }
-.contact .row form .inputBox {
+.contact .row .form .preencher span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  font-size: 18px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 800;
+  width: 100%;
+}
+.contact .row .form .inputBox {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -470,13 +511,13 @@ footer {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-.contact .row form .inputBox input,
-.contact .row form .inputBox select {
+.contact .row .form .inputBox input,
+.contact .row .form .inputBox select {
   width: 49%;
 }
-.contact .row form .inputBox input,
-.contact .row form .inputBox select,
-.contact .row form textarea {
+.contact .row .form .inputBox input,
+.contact .row .form .inputBox select,
+.contact .row .form textarea {
   padding: 1.4rem;
   border-radius: 1rem;
   background: var(--black3);
@@ -486,7 +527,7 @@ footer {
   font-size: 2rem;
   border: 0.1rem solid var(--black1);
 }
-.contact .row form .inputBox label[for='fileUpload'] {
+.contact .row .form .inputBox label[for='fileUpload'] {
   padding: 1.4rem;
   border-radius: 1rem;
   background: var(--black3);
@@ -498,7 +539,7 @@ footer {
   width: 100%;
   cursor: pointer;
 }
-.contact .row form textarea {
+.contact .row .form textarea {
   width: 100%;
   resize: none;
   height: 15rem;
@@ -780,13 +821,13 @@ iframe {
     line-height: 7rem;
     font-size: 4rem;
   }
-  .contact .row form .inputBox input,
-  .contact .row form .inputBox select {
+  .contact .row .form .inputBox input,
+  .contact .row .form .inputBox select {
     width: 100%;
   }
-  .contact .row form .inputBox input,
-  .contact .row form .inputBox select,
-  .contact .row form textarea {
+  .contact .row .form .inputBox input,
+  .contact .row .form .inputBox select,
+  .contact .row .form textarea {
     font-size: 2rem;
   }
   .footer .box-container .box a,
