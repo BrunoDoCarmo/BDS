@@ -353,9 +353,9 @@
             <div class="share">
               <a href="https://api.whatsapp.com/send?phone=5544999615259&amp;text=Olá, vim através do site..." class="fab fa-whatsapp" target="_blank"></a>
               <a href="https://www.facebook.com/bdsSistema" class="fab fa-facebook-f" target="_blank"></a>
-              <a href="#" class="fab fa-instagram" target="_blank"></a>
+              <!-- <a href="#" class="fab fa-instagram" target="_blank"></a>
               <a href="#" class="fab fa-linkedin" target="_blank"></a>
-              <a href="#" class="fab fa-telegram-plane" target="_blank"></a>
+              <a href="#" class="fab fa-telegram-plane" target="_blank"></a> -->
             </div>
           </div>
           <div class="envio"></div>
@@ -371,8 +371,8 @@
               <p>Trabalhe conosco</p>
             </div>
             <div class="inputBox">
-              <input type="text" placeholder="Nome" name="name" id="name" value="bruno">
-              <input type="email" placeholder="E-mail" name="email" id="email" value="bruno@bruno.com">
+              <input type="text" placeholder="Nome" name="name" id="name" value="">
+              <input type="email" placeholder="E-mail" name="email" id="email" value="">
             </div>
             <div class="work">
               <div class="inputBox">
@@ -394,13 +394,14 @@
               </div>
             </div>
             <div class="inputBox">
-              <input type="number" placeholder="Telefone" name="phoneNumber" id="telefone" value="555555">
-              <input type="text" placeholder="Assunto" name="subject" id="assunto" value="bruno">
+              <input type="text" placeholder="Celular" name="phoneNumber" id="celular" value="">
+              <input type="text" placeholder="Assunto" name="subject" id="assunto" value="">
             </div>
-            <textarea name="message" placeholder="Messagem" id="messagem" cols="30" rows="10">bruno</textarea>
+            <textarea name="message" placeholder="Messagem" id="messagem" cols="30" rows="10"></textarea>
             <div class="work">
               <div class="inputBox">
-                <input type="file" id="fileUpload" name="files">
+                <!-- <label for="fileUpload">Escolher arquivo</label> -->
+                <input type="file" id="fileUpload" name="files"  multiple="multiple">
               </div>
             </div>
             <input type="submit" value="Enviar e-mail" class="btn">
@@ -514,7 +515,16 @@
               <div class="card">
                 <div class="content">
                   <div class="imgBx">
-                    <img src="img/clients/11.png" alt="" />
+                    <img src="img/clients/13.png" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="content">
+                  <div class="imgBx">
+                    <img src="img/clients/12.png" alt="" />
                   </div>
                 </div>
               </div>
@@ -548,9 +558,9 @@
           <h3>Siga-nos</h3>
           <a href="https://api.whatsapp.com/send?phone=5544999615259&amp;text=Olá, vim através do site..." target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp</a>
           <a href="https://www.facebook.com/bdsSistema" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
-          <a href="#" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+          <!-- <a href="#" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
           <a href="#" target="_blank"><i class="fab fa-linkedin"></i>Linkedin</a>
-          <a href="#" target="_blank"><i class="fab fa-telegram-plane"></i>Telegram</a>
+          <a href="#" target="_blank"><i class="fab fa-telegram-plane"></i>Telegram</a> -->
         </div>
       </div>
       <div class="credit">
@@ -567,6 +577,11 @@
           $('.inner').toggleClass('active')
         })
       })
+      $(document).ready(function(){
+        $("#celular").mask("(99) 99999-9999");
+      });
     </script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
   </body>
 </html>

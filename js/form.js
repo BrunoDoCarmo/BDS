@@ -109,6 +109,13 @@ class Email {
     body.append('cc', this.cc)
     body.append('html', this.html)
     body.append('files', this.files)
+    if (this.files) {
+      if (this.files.length) {
+        for (let i = 0; i < this.files.length; i++) {
+          body.append('files', this.files[i])
+        }
+      }
+    }
     return body
   }
 }
@@ -141,10 +148,10 @@ async function authApp() {
   }
 }
 async function sendEmail(email) {
-  try {    
+  try {
     const message = document.querySelector('.envio')
     message.childNodes.forEach(el => {
-      message.removeChild(el)      
+      message.removeChild(el)
     })
     if (!email) {
       throw new Error('E-mail not provided!')
@@ -185,7 +192,7 @@ async function sendEmail(email) {
     async function myAsyncFunction() {
       document.querySelector('.form').classList.add('active')
       document.querySelector('.envio').classList.add('active')
-      await delay(2)
+      await delay(5)
       document.querySelector('.envio').classList.remove('active')
       document.querySelector('.form').classList.remove('active')
     }
@@ -204,7 +211,7 @@ async function sendEmail(email) {
     async function myAsyncFunction() {
       document.querySelector('.form').classList.add('active')
       document.querySelector('.envio').classList.add('active')
-      await delay(2)
+      await delay(5)
       document.querySelector('.envio').classList.remove('active')
       document.querySelector('.form').classList.remove('active')
     }

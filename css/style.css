@@ -515,13 +515,22 @@ footer {
 .contact .row .form .inputBox select {
   width: 49%;
 }
+.contact .row .form .inputBox ::-webkit-input-placeholder,
+.contact .row .form textarea::-webkit-input-placeholder{
+  text-transform: capitalize;
+  color: #000;
+}
 .contact .row .form .inputBox:nth-child(3) input:nth-child(1),
 .contact .row .form .inputBox:nth-child(5) input:nth-child(2) {
   text-transform: uppercase;
 }
+.contact .row .form .inputBox:nth-child(3) input:nth-child(2),
+.contact .row .form .inputBox:nth-child(5) input:nth-child(1) {
+  text-transform: lowercase;
+}
 .contact .row .form .inputBox input[type=number]::-webkit-inner-spin-button, 
 .contact .row .form .inputBox input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 .contact .row .form .inputBox input,
 .contact .row .form .inputBox select,
@@ -538,6 +547,19 @@ footer {
   width: 100%;
   resize: none;
   height: 15rem;
+}
+/* .contact .row form .inputBox label[for='fileUpload'] */
+.contact .row form .inputBox #fileUpload {
+  padding: 1.4rem;
+  border-radius: 1rem;
+  background: var(--black3);
+  text-transform: none;
+  color: var(--black1);
+  margin: 0.7rem 0;
+  font-size: 2rem;
+  border: 0.1rem solid var(--black1);
+  width: 100%;
+  cursor: pointer;
 }
 .maps {
   margin: 0;
