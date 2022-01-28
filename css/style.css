@@ -29,6 +29,10 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 8rem;
   overflow-x: hidden;
+  background-color: #fff;
+}
+body {
+  background-color: #fff;
 }
 html::-webkit-scrollbar {
   width: 0.5rem;
@@ -181,6 +185,9 @@ footer {
   font-size: 1.5rem;
   padding: 1rem 0;
 }
+.services {
+  background-color: var(--white);
+}
 .services .box-container {
   display: -ms-grid;
   display: grid;
@@ -292,6 +299,10 @@ footer {
 .technology .swiper-3d .swiper-slide-shadow-left,
 .technology .swiper-3d .swiper-slide-shadow-right {
   background-image: none;
+}
+.swiper-3d, .swiper-3d.swiper-css-mode .swiper-wrapper{
+  perspective: none;
+  overflow: hidden;
 }
 .technology .card {
   position: relative;
@@ -413,7 +424,7 @@ footer {
   flex: 1 1 42rem;
   display: none;
 }
-.contact .row .envio.active {  
+.contact .row .envio.active {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -516,7 +527,7 @@ footer {
   width: 49%;
 }
 .contact .row .form .inputBox ::-webkit-input-placeholder,
-.contact .row .form textarea::-webkit-input-placeholder{
+.contact .row .form textarea::-webkit-input-placeholder {
   text-transform: capitalize;
   color: #000;
 }
@@ -528,8 +539,8 @@ footer {
 .contact .row .form .inputBox:nth-child(5) input:nth-child(1) {
   text-transform: lowercase;
 }
-.contact .row .form .inputBox input[type=number]::-webkit-inner-spin-button, 
-.contact .row .form .inputBox input[type=number]::-webkit-outer-spin-button { 
+.contact .row .form .inputBox input[type='number']::-webkit-inner-spin-button,
+.contact .row .form .inputBox input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 .contact .row .form .inputBox input,

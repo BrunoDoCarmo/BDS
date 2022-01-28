@@ -60,9 +60,9 @@ var swiper = new Swiper('.swiper-container', {
 let selectContact = document.querySelector('#selectContact')
 selectContact.addEventListener('click', function () {
   var loop
-  let work = document.querySelectorAll(".work")
-  for(loop = 0; loop < work.length; loop++) {
-    if(!work[loop].classList.contains('active')){
+  let work = document.querySelectorAll('.work')
+  for (loop = 0; loop < work.length; loop++) {
+    if (!work[loop].classList.contains('active')) {
       work[loop].classList.add('active')
     } else {
       work[loop].classList.remove('active')
@@ -81,4 +81,4 @@ let preloader = document.querySelector('.preloader')
 //     document.querySelector('label[for="fileUpload"').innerText = fileName
 //   }
 // }
-document.getElementById('fileUpload').addEventListener('change', fileSelected)
+//document.getElementById('fileUpload').addEventListener('change', fileSelected)
