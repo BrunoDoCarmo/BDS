@@ -2,7 +2,7 @@ const env = {
   BASE_URL: 'https://vivi.infobds.com.br',
   AUTH_USER: 'infobds',
   AUTH_PASS: 'infobds',
-  STANDARD_RECEIVER: 'sac@infobds.com.br',
+  STANDARD_RECEIVER: 'suporte@infobds.com.br',
   SITE_URL: 'infobds.com.br'
 }
 function renderHtml(
