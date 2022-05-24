@@ -16,7 +16,7 @@ function renderHtml(
 ) {
   return `
               <p>
-                  Olá, ${name} lhe enviou uma mensagem:
+                  OlÃ¡, ${name} lhe enviou uma mensagem:
                   <br>
                   ${message}.
                   <br>
@@ -30,11 +30,11 @@ function renderHtml(
                   E-mail: <a href="mailto:${email}" target="_blank" class="email-link">${email}.</a>
                   <span style="display: ${renderWork ? 'flex' : 'none'}">
                       <br>
-                      Solicitação de trabalho:
+                      SolicitaÃ§Ã£o de trabalho:
                       <br>
                       Cargo desejado: ${expertise}.
                       <br>
-                      Tempo de experiência: ${workExperience}.
+                      Tempo de experiÃªncia: ${workExperience}.
                       <br>
                       Verificar anexos!
                   </span>
@@ -43,9 +43,9 @@ function renderHtml(
                   <!-- <a href="https://www.infobds.com.br" target="_blank" class="email-link">
                       <div id="logo-bds"></div>
                   </a> -->
-                  Atenciosamente, BDS Informática LTDA.
+                  Atenciosamente, BDS InformÃ¡tica LTDA.
                   <br>
-                  Soluções em desenvolvimento de sistemas.
+                  SoluÃ§Ãµes em desenvolvimento de sistemas.
                   <br>
                   Fone: <a href="tel:+55443232-6083" target="_blank" class="email-link">(44) 3232-6083.</a>
                   <br>
@@ -55,9 +55,9 @@ function renderHtml(
                   <br>
                   Website: <a href="https://www.infobds.com.br" target="_blank" class="email-link">www.infobds.com.br.</a>
                   <br>
-                  Obrigado por utilizar nossos serviços.
+                  Obrigado por utilizar nossos serviÃ§os.
                   <br>
-                  Favor não responder este e-mail.
+                  Favor nÃ£o responder este e-mail.
               </p>
           `
 }
@@ -84,7 +84,7 @@ class Email {
         throw new Error('Email not provided!')
       }
       this.to = env.STANDARD_RECEIVER
-      this.subject = `Entrada de formulário de ${env.SITE_URL}. ${subject}`
+      this.subject = `Entrada de formulÃ¡rio de ${env.SITE_URL}. ${subject}`
       this.cc = ''
       this.html = renderHtml(
         name,
@@ -159,7 +159,7 @@ async function sendEmail(email) {
     const { type, token } = await authApp()
     if (!type || !token) {
       throw new Error(
-        'Não foi possível autenticar com o serviço de envio de e-mail, tente novamente mais tarde!'
+        'NÃ£o foi possÃ­vel autenticar com o serviÃ§o de envio de e-mail, tente novamente mais tarde!'
       )
     }
     const requestParams = {
@@ -180,7 +180,7 @@ async function sendEmail(email) {
     messageValid.innerHTML = `
                 Seu e-mail foi enviado com sucesso!
                 <br>
-                Por favor aguarde que entraremos em contato o mais breve possível!
+                Por favor aguarde que entraremos em contato o mais breve possÃ­vel!
                 `
     document.body.appendChild(messageValid)
     document.querySelector('.envio').append(messageValid)
@@ -234,7 +234,7 @@ function requestEmailSender(event) {
       throw new Error('Favor informar o assunto!')
     }
     if (!form.phoneNumber.value) {
-      throw new Error('Favor informar o seu número de telefone!')
+      throw new Error('Favor informar o seu nÃºmero de telefone!')
     }
     if (!form.email.value) {
       throw new Error('Favor informar o seu e-mail!')
